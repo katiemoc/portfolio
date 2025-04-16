@@ -1,6 +1,7 @@
 html {
     --color-accent: oklch(70% 0.1702 258.22);
     accent-color: var(--color-accent);
+    color-scheme: light dark;
 }
 
 body {
@@ -11,11 +12,12 @@ body {
     max-width: 100ch;
     margin-inline: auto;
     padding: 2ch;
-  }
+}
+
 nav {
     display: flex;
     margin-bottom: 1em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid oklch(50% 10% 200 / 40%);
 }
 
 nav a {
@@ -31,7 +33,7 @@ nav a {
 
 nav a.current {
     font-weight: bold;
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid oklch(50% 10% 200 / 40%);
     padding-bottom: 0.1em;
 }
 
@@ -39,10 +41,10 @@ nav a:hover {
     transform: scale(1.1);
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
-    background-color: oklch(from var(--color-accent) 95% 5% h)
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%)
 }
 
-input, textarea, button {
+input, textarea, button, select {
     font: inherit;
 }
 
@@ -104,7 +106,7 @@ h3 {
   border: 1px solid var(--border);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 1rem 2rem color-mix(in oklch, var(--color-accent) 70%, transparent);
+  box-shadow: 0 1rem 2rem color-mix(in oklch, var(--color-accent), canvas 70%);
   display: grid;
   gap: 2em;
 }
@@ -113,8 +115,7 @@ h3 {
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   padding: 1rem;
-  background-color: #fff;
-  box-shadow: 0 4px 10px color-mix(in oklch, var(--color-accent) 50%, transparent);
+  box-shadow: 0 4px 10px color-mix(in oklch, var(--color-accent), canvas 50%);
 }
 
 section h3 {
@@ -147,4 +148,11 @@ li {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+}
+
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
 }

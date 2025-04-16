@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Information</title>
     <link rel="stylesheet" href="../style.css">
+    <script type="module" src="../global.js"></script>
 </head>
 <body>
+    <!--
     <nav>
         <a href="../index.html">Home</a>
         <a href="../projects/index.html">My Projects!</a>
         <a href="../resume/index.html">My Resume</a>
-        <a class="current" href="index.html">Contact</a>
+        <a href="index.html">Contact</a>
         <a href="https://github.com/katiemoc" target="_blank">My GitHub Profile</a>
     </nav>
+    -->
     <h1>Contact Me</h1>
-    <form action="mailto:kmoc@ucsd.edu" method="POST" enctype="text/plain">
-        <label>Your Email: <input name="email" type="email" value="youremail@example.com"></label>
+    <form id="form" action="mailto:kmoc@ucsd.edu"> <!-- method="POST" enctype="text/plain">
+        <label>Your Email: <input name="email" type="email" value="youremail@example.com"></label> -->
         <label>Subject: <input name="subject" value="Subject"></label>
         <label>Body: <textarea name="body">Hi Katie, </textarea></label>
         <button>Submit</button>
