@@ -89,6 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 300%;
+    margin-bottom: 0.6em;
 }
 
 h2 {
@@ -156,3 +157,36 @@ li {
     right: 1rem;
     font-size: 80%;
 }
+
+#profile-stats {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  text-align: left;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-grid dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: color-mix(in oklch, oklch(0.5 0.01 270), canvas 0.5%);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0;
+  grid-row: 1;
+}
+
+.profile-grid dd {
+  font-size: 2rem;
+  font-weight: 400;
+  color: color-mix(in oklch, oklch(0.5 0.01 270), canvas 0);
+  margin: 0;
+  grid-row: 2;
+}
+

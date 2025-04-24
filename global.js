@@ -4,20 +4,9 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// let navLinks = $$("nav a");
-// let currentLink = navLinks.find(
-//     (a) => a.host === location.host && a.pathname === location.pathname,
-//   );
-//
-// if (currentLink) {
-//     // or if (currentLink !== undefined)
-//     currentLink.classList.add('current');
-// }
-
 let pages = [
     { url: '', title: 'Home' },
     { url: 'projects/', title: 'My Projects' },
-    // add the rest of your pages here
     { url: 'resume/', title: 'My Resume' },
     { url: 'contact/', title: 'Contact' },
     { url: 'https://github.com/katiemoc', title: 'My GitHub Profile'}
@@ -91,3 +80,60 @@ form?.addEventListener('submit', function (event) {
     location.href = url;
 });
 
+export async function fetchJSON(url) {
+    try {
+      // Fetch the JSON file from the given URL
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+      console.log(response)
+      const data = await response.json();
+      return data;
+
+    } catch (error) {
+      console.error('Error fetching or parsing JSON data:', error);
+    }
+  }
+
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+    // Your code will go here
+    containerElement.innerHTML = '';
+
+    project.forEach(project => {
+        const article = document.createElement('article');
+        
+        /*
+        article.innerHTML = `
+            <h3>${project.title}</h3>
+            <img src="${project.image}" alt="${project.title}">
+            <p>${project.description}</p>
+        `;
+        */
+        
+        const heading = document.createElement(headingLevel);
+        heading.textContent = project.title;
+
+        let image;
+        if (project.image) {
+            image = document.createElement('img');
+            image.src = project.image;
+            image.alt = project.title;
+        }
+
+        const description = document.createElement('p');
+        description.textContent = project.description;
+        
+        article.appendChild(heading);
+        if (image) article.appendChild(image);
+        article.appendChild(description);
+
+        containerElement.appendChild(article);
+    });
+}
+
+export async function fetchGitHubData(username) {
+    return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+  
