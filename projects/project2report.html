@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Project 2</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Katie Moc</strong> — <em>kmoc@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The average investigation length of NYPD complaints are longer for certain ethnicities, such as Black and Hispanic.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="../images/project 2 bar.png" alt=""/>
+          <figcaption>Complaints by Black and Hispanic people face significantly longer case lengths.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>(2) The y-axis begins at 8.2 rather than 0, and is an unnoticable light gray color. This is a completely
+            deceptive technique because it exagerrates difference between the groups.</li>
+          <li>(2) The bars for Asian, White, and American Indian are slightly less opaque to avert attention towards bars 
+            for Black and Hispanic. This is completely deceptive because it attempts to direct the audience to focus on 
+            the differences.</li>
+          <li>(2) Bars for Black and Hispanic are in the center of the graph. This is also completely deceptive for the same reason above.</li>
+          <li>(1.5) Bars are narrow to emphasize height differences. Bar charts are typically good to help viewers easily
+            compare them-- which I manipulated to persuade this proposition.</li>
+          <li>(2) Removed data about Refused, Other, and Unknown ethnicities to highlight difference. These data were
+            actually close to the average investigation lengths for Black and Hispanic. Removing them allowed me to highlight
+            a larger difference between the bars.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="../images/project 2 pie.png" alt=""/>
+          <figcaption>Complaints by people of all ethnicities face similar case lengths.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>(-2) Using a pie chart makes it difficult to assess differences-- each of the pieces all look the same size. 
+            I considered using a bar chart or line plot instead but I figured the differences were too noticable.</li>
+          <li>(-2) Rounds investigation length to the nearest month. 9 vs. 10 is such a small difference. I considered 
+            rounding to the nearest tenth because it would seem more realistic but I also think that having whole numbers
+            makes it easy to see the lack of difference.</li>
+          <li>(1) Color scheme separates ethnicities-- it's easy to see that they all look the same. There are a lot of colors (8)
+            so it might be difficult to process at first, but I think using this many colors also helps erase size differences
+            between the pies.</li>
+          <li>(2) Extra notes about how transformation ("average investigation length") was calculated. This is both an earnest
+            and persuading feature because showing transparency builds trust between the audience and the graph.</li>
+          <li>(2) Includes data about Refused, Other, and Unknown ethnicities to highlight equivalence. Showing all the data 
+            groups also helps build trust. Some viewers may have not considered these data and be more likely to believe it.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>
+          The overall design process was relatively straightforward for me. I knew that I wanted to create a bar plot but
+          I did not consider using a pie chart until later on. Something that surprised me is that making earnest and deceptive
+          graphs go through some of the same process. I knew that I had to incorporate some earnest techniques to make the 
+          plot easy to understand-- easy enough to brush over the deception without realizing. Another thing I realized is 
+          that both plots required some stretching of the truth. In the deceptive bar plot, not showing the entire y-axis 
+          plays a key part in hiding the truth. However, while the pie chart does express the truth-- there is not much difference 
+          in the average investigation lengths between ethnicities-- it also utilizes deception to exaggerate this truth.
+        </p>
+        <p>
+          I now define "ethical analysis and visualization" as the ability to not just use earnest data science techniques, but 
+          also be earnest in our intent. We must consider the information that our summaries and graphs hide, as long as false 
+          realities they may create. It was really easy for me to manipulate my visualizations to be more persuasive, so it is 
+          not hard to believe that those who create important visuals for the news might do the same. One bound I can draw to 
+          distinguish "acceptable" vs. "misleading" persuasive choices is drawing proper axes that start at 0 and are evenly scaled. 
+          This includes equivalence between the x and y-axes as well.
+        </p>
+
+
+
+      </section>
+    </main>
+  </body>
+</html>
