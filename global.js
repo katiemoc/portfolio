@@ -103,14 +103,6 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     project.forEach(project => {
         const article = document.createElement('article');
         
-        /*
-        article.innerHTML = `
-            <h3>${project.title}</h3>
-            <img src="${project.image}" alt="${project.title}">
-            <p>${project.description}</p>
-        `;
-        */
-        
         const heading = document.createElement(headingLevel);
         heading.textContent = project.title;
 
@@ -121,12 +113,22 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
             image.alt = project.title;
         }
 
+        const wrap = document.createElement('div');
+        wrap.classList.add('project-description');
+
         const description = document.createElement('p');
         description.textContent = project.description;
+
+        const year = document.createElement('p');
+        year.classList.add('project-year');
+        year.textContent = `c. ${project.year}`;
         
+        wrap.appendChild(description);
+        wrap.appendChild(year);
+
         article.appendChild(heading);
         if (image) article.appendChild(image);
-        article.appendChild(description);
+        article.appendChild(wrap);
 
         containerElement.appendChild(article);
     });
