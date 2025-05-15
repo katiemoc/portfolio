@@ -76,6 +76,10 @@ button {
     grid-row: span 3;
 }
 
+.project-year {
+  font-style: italic;
+}
+
 article h2 {
     margin: 0;
 }

@@ -107,11 +107,30 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
         const heading = document.createElement(headingLevel);
         heading.textContent = project.title;
 
+        let titleLink;
+        if (project.url) {
+            titleLink = document.createElement('a');
+            titleLink.href = project.url;
+            titleLink.target = '_blank';
+            titleLink.rel = 'noopener noreferrer';
+            titleLink.appendChild(heading);
+        }
+
         let image;
+        let imageLink;
+
         if (project.image) {
             image = document.createElement('img');
             image.src = project.image;
             image.alt = project.title;
+
+            if (project.url) {
+                imageLink = document.createElement('a');
+                imageLink.href = project.url;
+                imageLink.target = '_blank';
+                imageLink.rel = 'noopener noreferrer';
+                imageLink.appendChild(image);
+            }
         }
 
         const wrap = document.createElement('div');
@@ -127,8 +146,13 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
         wrap.appendChild(description);
         wrap.appendChild(year);
 
-        article.appendChild(heading);
-        if (image) article.appendChild(image);
+        if (project.url) {
+            article.appendChild(titleLink);
+            if (image) article.appendChild(imageLink);
+        } else {
+            article.appendChild(heading);
+            if (image) article.appendChild(image);
+        }
         article.appendChild(wrap);
 
         containerElement.appendChild(article);

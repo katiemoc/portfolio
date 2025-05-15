@@ -1,9 +1,10 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "year": "2024",
+        "title": "Bikewatching",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero nisi quis mollitia blanditiis molestiae ipsum dolorem sequi numquam culpa minima error cupiditate praesentium, asperiores, consequuntur doloribus non dolorum rem id!"
+        "description": "Visualizes bike lanes and traffic in Boston and Cambridge.",
+        "url": "https://katiemoc.github.io/bikewatching/"
     },
     {
         "title": "Nulla ab culpa nihil.",
