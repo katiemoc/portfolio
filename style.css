@@ -283,6 +283,7 @@ path {
   gap: 1rem;
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 2em;
 }
 
 .stats dt {
@@ -358,9 +359,15 @@ dl.info dd {
 }
 
 circle {
-  transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+  transition: all 200ms, r calc(var(--r) * 100ms);
+}
+
+@starting-style {
+  circle {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -384,3 +391,207 @@ circle.selected {
   stroke-dasharray: 5 3;
   animation: marching-ants 2s linear infinite;
 }
+
+.files {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25rem 1rem;
+}
+
+.files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.files dt {
+  grid-column: 1;
+}
+
+.files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+.files small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+:global(body.meta) {
+  max-width: min(120ch, 80vw);
+}
+
+#scrollytelling {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  height: 600px;
+  gap: 20px;
+}
+
+/* Left panel: scroll list */
+#scroll-container {
+  display: grid;
+  grid-template-rows: 1fr; /* optional if spacer + items are stacked absolutely */
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+#chart-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  gap: 10px;
+  overflow: hidden;
+}
+
+/* Chart inside right panel */
+#chart {
+  border: 1px solid #ddd;
+  overflow: hidden;
+  /* optionally: */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Commit items (left scroll list) */
+#items-container {
+  position: relative;
+  display: grid;
+  grid-template-rows: subgrid;
+  row-gap: 0px;
+}
+
+
+/*
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#scroll-container {
+  grid-column: 1;
+  position: relative;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+#chart {
+  grid-column: 2;
+}
+
+#items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+*/
+
+#spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; /* transparent */
+  pointer-events: none;
+}
+
+.item {
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #eee;
+}
+
+
+
+
+
+#scrollytelling-files {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  height: 600px;
+  gap: 20px;
+}
+
+#scroll-container-files {
+  display: grid;
+  grid-template-rows: 1fr; 
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+#chart-container-files {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  gap: 10px;
+  overflow: hidden;
+}
+
+#chart-container-files > dl.files {
+  overflow-y: auto;       /* enable scrolling if content is long */
+  height: 100%;           /* fill parent's height */
+  margin: 0;              /* remove default margin */
+  padding: 0 10px;        /* some padding if you want */
+  box-sizing: border-box;
+}
+
+#files {
+  border: 1px solid #ddd;
+  overflow: hidden;
+  /* optionally: */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#items-container-files {
+  position: relative;
+  display: grid;
+  grid-template-rows: subgrid;
+  row-gap: 0px;
+}
+
+#spacer-files {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  pointer-events: none;
+}
+
+.item-files {
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #eee;
+}
+
